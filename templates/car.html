@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{{car.brand}} {{car.model}}</h3>
+    <div>
+        <img src="{{course.image.url}}" alt="Image">
+        <p>{{car.price}}тг</p>
+        <p>{{car.volume}}</p>
+        <p>{{car.status}}</p>
+    </div>  
+
+{% endblock %}

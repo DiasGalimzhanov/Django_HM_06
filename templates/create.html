@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <select name="brand">
+            {% for brand in brands %}
+                <option value="{{ brand.id }}">{{ brand.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="volume" placeholder="Volume">
+        <input type="text" name="model" placeholder="Model">
+        <input type="number" name="price" placeholder="Cost">
+        <input type="file" name="cover">
+        <select name="status">
+            {% for status in statuses %}
+                <option value="{{ status.0 }}">{{ status.1 }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Create</button>
+    </form>
+{% endblock %}

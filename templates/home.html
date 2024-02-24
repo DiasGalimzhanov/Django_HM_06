@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Cars</h3>
+    <div class="categories" style="display: flex; justify-content: space-evenly;">
+        {% for brand in brands %}
+            <a href="?brand={{ brand.name }}">{{ brand.name }}</a>
+        {% endfor %}
+    </div>
+
+
+    {% for car in cars %}
+        <div>
+            <img src="{{car.image.url}}" alt="Image">
+            <h5><a href="{% url 'car' car.id %}">{{car.model}}</a></h5>
+            <p>{{car.price}}$</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
